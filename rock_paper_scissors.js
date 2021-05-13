@@ -84,6 +84,8 @@ function playRound(playerSelection, computerSelection) {
 
         if (winner = "Player"||"Computer") {
         while (playerScore < 5 && computerScore < 5) {
+            playerChoice();
+            computerPlay();
             playRound(playerSelection, computerSelection);
             if (playerScore = 5) {
                 console.log("Player victorious! Machine is crushed!");
