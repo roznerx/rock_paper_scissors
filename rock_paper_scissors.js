@@ -3,6 +3,7 @@
 let playerScore = 0;
 let computerScore = 0;
 
+
 //1.Player and Computer choices
 
 //1.1.Player's choices
@@ -11,12 +12,14 @@ function playerChoice() {
 
     let playerChoice = prompt("Pick your weapon!");
 
-    if (playerChoice.toLowerCase() === "rock"|"paper"|"scissors") {
+    if (playerChoice.toLowerCase() === "rock"||"paper"||"scissors") {
         return playerChoice.toLowerCase();
     } else {
-        return "Invalid input! Please select 'rock', 'paper' or 'scissors'!";
+        return console.log("Invalid input! Please select 'rock', 'paper' or 'scissors'!");
     }
 };
+
+const playerSelection = playerChoice();
 
 //1.2.Computer's choices
 
@@ -26,10 +29,9 @@ function computerPlay(){
     return random[Math.floor(Math.random() * 3)];
 };
 
-//2.Round boolean
-
-const playerSelection = playerChoice();
 const computerSelection = computerPlay();
+
+//2.Round boolean
 
 function playRound(playerSelection, computerSelection) {
 
@@ -40,59 +42,109 @@ function playRound(playerSelection, computerSelection) {
     let loseMessage = "You lose!";
     let drawMessage = "Draw!";
 
+    let rockBeats = " Rock beats scissors!";
+    let paperBeats = " Paper beats rock!";
+    let scissorsBeat = " Scissors beats paper!";
+
+    let winner = "";
+
     if (playerSelection === computerSelection) {
-        return drawMessage;
+        console.log(drawMessage);
     } else if (playerSelection === "rock") {
         if (computerSelection === "scissors") {
-            return winMessage + " Rock beats scissors!";         
+            console.log(winMessage + rockBeats);
+            playerScore += 1;
+            let winner = "Player";
         } else if (computerSelection === "paper") {
-            return loseMessage + " Paper beats rock!";
+            console.log(loseMessage + paperBeats);
+            computerScore += 1;
+            let winner = "Computer";
         }
     } else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
-            returnwinMessage + " Paper beats rock!";
+            console.log(winMessage + paperBeats);
+            playerScore += 1;
+            let winner = "Player";
         } else if (computerSelection === "scissors") {
-            return loseMessage + " Scissors beats paper!";
+            console.log(loseMessage + scissorsBeat);
+            computerScore += 1;
+            let winner = "Computer";
         }
     } else if (playerSelection === "scissors") {
         if (computerSelection === "paper") {
-            return winMessage + " Scissors beats paper!";
+            console.log(winMessage + scissorsBeat);
+            playerScore += 1;
+            let winner = "Player";
         } else if (computerSelection === "rock") {
-            return loseMessage + " Rock beats scissors!";
+            console.log(loseMessage + rockBeats);
+            computerScore += 1;
+            let winner = "Computer";
         }
-    }    
+    } 
 
-    if (winMessage = true) {
-        return playerScore + 1;
-    } else if (loseMessage = true) {
-        return computerScore + 1;
-    }
+        if (winner = "Player"||"Computer") {
+        while (playerScore < 5 && computerScore < 5) {
+            playRound(playerSelection, computerSelection);
+            if (playerScore = 5) {
+                console.log("Player victorious! Machine is crushed!");
+            } else if (computerScore = 5) {
+                console.log("Game over! Kneel before me, you filthy human!");
+            }
+        }
+    }           
 }
+
 
 console.log(playRound(playerSelection, computerSelection));
 console.log("Player: " + playerScore + " - " + "Computer: " + computerScore);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 
-function gameLoop(playerScore, computerScore) {
-
-    const gameRound = playRound(playerSelection, computerSelection);
+function game() {
 
     while (playerScore < 5 && computerScore < 5) {
-        gameRound++;
+        
+    }
+
+
+
+}
+
+
+
+
+function gameLoop() {
+
+    while (playerScore < 5 && computerScore < 5) {
+        playRound(playerSelection, computerSelection)
+        
+        
+    }
+
         if (playerScore = 5) {
             return "You win! Man beats machine!"  
         } else if (computerScore = 5) {
             return "You lose! Pathetic human!"
         }
-    }
-}
-
-should use previous functions inside this one to play a game of 5 rounds
-should keep score and report a winner or loser at the end
-should looop playround function 5 times in a row
-should use console.log() to display results of each round and winner at the end
     
-
+}
 */
