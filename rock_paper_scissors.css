@@ -1,0 +1,35 @@
+#body {
+    background: black !important;
+}
+
+#pick_text {
+    margin-left: 530px;
+    color: white;
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    font: arial;
+}
+
+#rock {
+    max-width: 20%;
+    height: auto;
+    margin-left: 100px;
+    background-color: white;
+}
+
+#paper {
+    max-width: 20%;
+    height: auto;
+    margin-left: 200px;
+    margin-right: -100px;
+    background-color: white;
+}
+
+#scissors {
+    max-width: 20%;
+    height: auto;
+    margin-left: 300px;
+    background-color: white;
+}
+
+

@@ -10,12 +10,12 @@ let computerScore = 0;
 
 function playerChoice() {
 
-    let playerChoice = prompt("Pick your weapon!");
+    //let playerChoice = prompt("Pick your weapon!");
 
     if (playerChoice.toLowerCase() === "rock"||"paper"||"scissors") {
-        return playerChoice.toLowerCase();
+        //return playerChoice.toLowerCase();
     } else {
-        return console.log("Invalid input! Please select 'rock', 'paper' or 'scissors'!");
+        //return console.log("Invalid input! Please select 'rock', 'paper' or 'scissors'!");
     }
 };
 
