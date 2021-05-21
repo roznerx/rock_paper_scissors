@@ -11,11 +11,14 @@
 }
 
 #rock {
+    
+    margin-left: 80px;
     max-width: 20%;
     height: auto;
-    margin-left: 100px;
     background-color: white;
+    cursor:pointer;
 }
+
 
 #paper {
     max-width: 20%;
@@ -23,6 +26,7 @@
     margin-left: 200px;
     margin-right: -100px;
     background-color: white;
+    cursor:pointer;
 }
 
 #scissors {
@@ -30,6 +34,16 @@
     height: auto;
     margin-left: 300px;
     background-color: white;
+    cursor:pointer;
 }
 
+#scores {
+    margin-left: 40px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font: arial;
+}
 
+#choices {
+    
+}

@@ -1,27 +1,42 @@
-//0.Initial scores
-
 let playerScore = 0;
 let computerScore = 0;
 
-
-//1.Player and Computer choices
-
-//1.1.Player's choices
+//
 
 function playerChoice() {
 
-    //let playerChoice = prompt("Pick your weapon!");
+    let playerChoose = "";
 
-    if (playerChoice.toLowerCase() === "rock"||"paper"||"scissors") {
-        //return playerChoice.toLowerCase();
-    } else {
-        //return console.log("Invalid input! Please select 'rock', 'paper' or 'scissors'!");
-    }
-};
+    const rockBtn = document.querySelector("#rock");
+    rockBtn.addEventListener("click", () => {
+        playerChoose = "rock";
+        console.log(playerChoose = "rock");
+    })
+
+    const paperBtn = document.querySelector("#paper");
+    paperBtn.addEventListener("click", () => {
+        playerChoose = "paper";
+        console.log(playerChoose = "paper");
+    })
+
+    const scissorsBtn = document.querySelector("#scissors");
+    scissorsBtn.addEventListener("click", () => {
+        playerChoose = "scissors";
+        console.log(playerChoose = "scissors");
+    })  
+}
 
 const playerSelection = playerChoice();
 
-//1.2.Computer's choices
+if (playerSelection === "rock"||"paper"||"scissors") {
+    document.getElementById("playerInput").value = playerSelection;
+    console.log(playerSelection);
+}
+
+
+//
+
+
 
 function computerPlay() {
 
@@ -31,7 +46,7 @@ function computerPlay() {
 
 const computerSelection = computerPlay();
 
-//2.Round boolean
+/*
 
 function playRound(playerSelection, computerSelection) {
 
@@ -101,16 +116,5 @@ function playRound(playerSelection, computerSelection) {
 console.log(playRound(playerSelection, computerSelection));
 console.log("Player: " + playerScore + " - " + "Computer: " + computerScore);
 console.log("Press F5 to play again!");
-
-/*
-
-Some notes regarding the current version!!!
-
--Game is up and running!
-
--Couple of things to fix:
-
-1) When the game ends, console displays console.log as "undefined" and "Player: true - Computer: false" strings.
-2) When the prompt happens at the beginning of rounds after the 1st one, no "Invalid input!" message happens.
 
 */
