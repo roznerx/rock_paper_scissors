@@ -2,7 +2,7 @@
     background: black !important;
 }
 
-#pick_text {
+#pick-text {
     margin-left: 530px;
     color: white;
     font-size: 60px;
@@ -38,12 +38,27 @@
 }
 
 #scores {
-    margin-left: 40px;
+    display: flex;
+    
+}
+
+#choices {
+    margin-left: 60px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font: arial;
 }
 
-#choices {
-    
+#round-winner{
+    margin-left: 300px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font: arial;
+}
+
+#overall-score{
+    margin-left: 300px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font: arial;
 }

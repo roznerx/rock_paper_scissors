@@ -1,42 +1,8 @@
 let playerScore = 0;
 let computerScore = 0;
 
-//
-
-function playerChoice() {
-
-    let playerChoose = "";
-
-    const rockBtn = document.querySelector("#rock");
-    rockBtn.addEventListener("click", () => {
-        playerChoose = "rock";
-        console.log(playerChoose = "rock");
-    })
-
-    const paperBtn = document.querySelector("#paper");
-    paperBtn.addEventListener("click", () => {
-        playerChoose = "paper";
-        console.log(playerChoose = "paper");
-    })
-
-    const scissorsBtn = document.querySelector("#scissors");
-    scissorsBtn.addEventListener("click", () => {
-        playerChoose = "scissors";
-        console.log(playerChoose = "scissors");
-    })  
-}
-
+const computerSelection = computerPlay();
 const playerSelection = playerChoice();
-
-if (playerSelection === "rock"||"paper"||"scissors") {
-    document.getElementById("playerInput").value = playerSelection;
-    console.log(playerSelection);
-}
-
-
-//
-
-
 
 function computerPlay() {
 
@@ -44,60 +10,109 @@ function computerPlay() {
     return random[Math.floor(Math.random() * 3)];
 };
 
-const computerSelection = computerPlay();
+function playerChoice() {
 
-/*
+    let playerChoose = "";
+    let playerInput = document.getElementById("player-input");
+    let computerInput = document.getElementById("computer-input");
+
+    const rockBtn = document.querySelector("#rock");
+    rockBtn.addEventListener("click", () => {
+        playerChoose = "rock";
+        console.log(playerChoose = "rock");
+        playerInput.value = "rock";
+        computerInput.value = computerSelection;
+        console.log(computerSelection);
+    })
+
+    const paperBtn = document.querySelector("#paper");
+    paperBtn.addEventListener("click", () => {
+        playerChoose = "paper";
+        console.log(playerChoose = "paper");
+        playerInput.value = "paper";
+        computerInput.value = computerSelection;
+        console.log(computerSelection);
+    })
+
+    const scissorsBtn = document.querySelector("#scissors");
+    scissorsBtn.addEventListener("click", () => {
+        playerChoose = "scissors";
+        console.log(playerChoose = "scissors");
+        playerInput.value = "scissors";
+        computerInput.value = computerSelection;
+        console.log(computerSelection);
+    })  
+}
 
 function playRound(playerSelection, computerSelection) {
 
-    console.log(playerSelection);
-    console.log(computerSelection);
-
-    let winMessage = "You win!";
-    let loseMessage = "You lose!";
-    let drawMessage = "Draw!";
-
-    let rockBeats = " Rock beats scissors!";
-    let paperBeats = " Paper beats rock!";
-    let scissorsBeat = " Scissors beats paper!";
-
-    let winner = "";
+    let winnerInput = document.getElementById("winner-input");
+    let whoBeatsWho = document.getElementById("who-beats-who");
 
     if (playerSelection === computerSelection) {
-        console.log(drawMessage);
-    } else if (playerSelection === "rock") {
-        if (computerSelection === "scissors") {
-            console.log(winMessage + rockBeats);
-            playerScore += 1;
-            winner = "Player";
-        } else if (computerSelection === "paper") {
-            console.log(loseMessage + paperBeats);
-            computerScore += 1;
-            winner = "Computer";
-        }
-    } else if (playerSelection === "paper") {
-        if (computerSelection === "rock") {
-            console.log(winMessage + paperBeats);
-            playerScore += 1;
-            winner = "Player";
-        } else if (computerSelection === "scissors") {
-            console.log(loseMessage + scissorsBeat);
-            computerScore += 1;
-            winner = "Computer";
-        }
-    } else if (playerSelection === "scissors") {
-        if (computerSelection === "paper") {
-            console.log(winMessage + scissorsBeat);
-            playerScore += 1;
-            winner = "Player";
-        } else if (computerSelection === "rock") {
-            console.log(loseMessage + rockBeats);
-            computerScore += 1;
-            winner = "Computer";
-        }
-    } 
+        
+        winnerInput.value = "Draw!";
+        console.log("Draw!");
 
-        if (winner = "Player"||"Computer") {
+    } else if (playerSelection === "rock") {
+
+        if (computerSelection === "scissors") {
+
+            whoBeatsWho.value = "Rock beats scissors!";
+            console.log("Rock beats scissors!");
+            playerScore += 1;
+            winnerInput.value = "Player";
+
+        } else if (computerSelection === "paper") {
+
+            whoBeatsWho.value = "Paper beats rock!";
+            console.log("Paper beats rock!");
+            computerScore += 1;
+            winnerInput.value = "Computer";      
+        }
+        
+    } else if (playerSelection === "paper") {
+
+        if (computerSelection === "rock") {
+
+            whoBeatsWho.value = "Paper beats rock!";
+            console.log("Paper beats rock!");
+            playerScore += 1;
+            winnerInput.value = "Player";
+        
+        } else if (computerSelection === "scissors") {
+
+            whoBeatsWho.value = "Scissors beats paper!";
+            console.log("Scissors beats paper!");
+            computerScore += 1;
+            winnerInput.value = "Computer";
+    
+        } 
+
+    } else if (playerSelection === "scissors") {
+
+        if (computerSelection === "paper") {
+
+            whoBeatsWho.value = "Scissors beats paper!";
+            console.log("Scissors beats paper!");
+            playerScore += 1;
+            winnerInput.value = "Player";
+
+        } else if (computerSelection === "rock") {
+
+            whoBeatsWho.value = "Rock beats scissors!";
+            console.log("Rock beats scissors!");
+            computerScore += 1;
+            winnerInput.value = "Computer";
+        }
+    }
+}
+
+
+
+/*
+
+if (winner = "Player"||"Computer") {
             console.log("Player: " + playerScore + " - " + "Computer: " + computerScore);
             while (playerScore < 5 && computerScore < 5) {
                 let newPlayerChoice = playerChoice();
@@ -111,7 +126,6 @@ function playRound(playerSelection, computerSelection) {
                 break
             } 
         }
-}
 
 console.log(playRound(playerSelection, computerSelection));
 console.log("Player: " + playerScore + " - " + "Computer: " + computerScore);
