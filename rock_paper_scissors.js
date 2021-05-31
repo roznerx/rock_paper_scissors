@@ -7,6 +7,11 @@ let overallComputerScore = document.getElementById("overall-computer-score");
 overallPlayerScore.value = playerScore;
 overallComputerScore.value = computerScore;
 
+let playerInput = document.getElementById("player-input");
+let computerInput = document.getElementById("computer-input");
+
+let resultInput = document.getElementById("result-input");
+let battleLog = document.getElementById("battle-log");
 
 const computerSelection = computerPlay();
 const playerSelection = playerChoice();
@@ -19,14 +24,12 @@ function computerPlay() {
 
 function playerChoice() {
 
-    let playerChoose = "";
-    let playerInput = document.getElementById("player-input");
-    let computerInput = document.getElementById("computer-input");
+    let playerSelection = "";
 
     const rockBtn = document.querySelector("#rock");
     rockBtn.addEventListener("click", () => {
-        playerChoose = "rock";
-        console.log(playerChoose = "rock");
+        playerSelection = "rock";
+        console.log(playerSelection = "rock");
         playerInput.value = "rock";
         computerInput.value = computerSelection;
         console.log(computerSelection);
@@ -34,26 +37,25 @@ function playerChoice() {
 
     const paperBtn = document.querySelector("#paper");
     paperBtn.addEventListener("click", () => {
-        playerChoose = "paper";
-        console.log(playerChoose = "paper");
+        playerSelection = "paper";
+        console.log(playerSelection = "paper");
         playerInput.value = "paper";
         computerInput.value = computerSelection;
-        console.log(computerSelection);
+        console.log(computerSelection);    
     })
 
     const scissorsBtn = document.querySelector("#scissors");
     scissorsBtn.addEventListener("click", () => {
-        playerChoose = "scissors";
-        console.log(playerChoose = "scissors");
+        playerSelection = "scissors";
+        console.log(playerSelection = "scissors");
         playerInput.value = "scissors";
         computerInput.value = computerSelection;
-        console.log(computerSelection);
-    })  
+        console.log(computerSelection);     
+    })
+
+    return playerSelection;
+
 }
-
-
-let resultInput = document.getElementById("result-input");
-let battleLog = document.getElementById("battle-log");
 
 function playRound(playerSelection, computerSelection) {
 
@@ -115,6 +117,7 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
+
 
 
 
