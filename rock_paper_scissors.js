@@ -1,6 +1,13 @@
 let playerScore = 0;
 let computerScore = 0;
 
+let overallPlayerScore = document.getElementById("overall-player-score");
+let overallComputerScore = document.getElementById("overall-computer-score");
+
+overallPlayerScore.value = playerScore;
+overallComputerScore.value = computerScore;
+
+
 const computerSelection = computerPlay();
 const playerSelection = playerChoice();
 
@@ -44,48 +51,49 @@ function playerChoice() {
     })  
 }
 
-function playRound(playerSelection, computerSelection) {
 
-    let winnerInput = document.getElementById("winner-input");
-    let whoBeatsWho = document.getElementById("who-beats-who");
+let resultInput = document.getElementById("result-input");
+let battleLog = document.getElementById("battle-log");
+
+function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
         
-        winnerInput.value = "Draw!";
+        resultInput.value = "Draw!";
         console.log("Draw!");
 
     } else if (playerSelection === "rock") {
 
         if (computerSelection === "scissors") {
 
-            whoBeatsWho.value = "Rock beats scissors!";
+            battleLog.value = "Rock beats scissors!";
             console.log("Rock beats scissors!");
             playerScore += 1;
-            winnerInput.value = "Player";
+            resultInput.value = "Player";
 
         } else if (computerSelection === "paper") {
 
-            whoBeatsWho.value = "Paper beats rock!";
+            battleLog.value = "Paper beats rock!";
             console.log("Paper beats rock!");
             computerScore += 1;
-            winnerInput.value = "Computer";      
+            resultInput.value = "Computer";      
         }
         
     } else if (playerSelection === "paper") {
 
         if (computerSelection === "rock") {
 
-            whoBeatsWho.value = "Paper beats rock!";
+            battleLog.value = "Paper beats rock!";
             console.log("Paper beats rock!");
             playerScore += 1;
-            winnerInput.value = "Player";
+            resultInput.value = "Player";
         
         } else if (computerSelection === "scissors") {
 
-            whoBeatsWho.value = "Scissors beats paper!";
+            battleLog.value = "Scissors beats paper!";
             console.log("Scissors beats paper!");
             computerScore += 1;
-            winnerInput.value = "Computer";
+            resultInput.value = "Computer";
     
         } 
 
@@ -93,17 +101,17 @@ function playRound(playerSelection, computerSelection) {
 
         if (computerSelection === "paper") {
 
-            whoBeatsWho.value = "Scissors beats paper!";
+            battleLog.value = "Scissors beats paper!";
             console.log("Scissors beats paper!");
             playerScore += 1;
-            winnerInput.value = "Player";
+            resultInput.value = "Player";
 
         } else if (computerSelection === "rock") {
 
-            whoBeatsWho.value = "Rock beats scissors!";
+            battleLog.value = "Rock beats scissors!";
             console.log("Rock beats scissors!");
             computerScore += 1;
-            winnerInput.value = "Computer";
+            resultInput.value = "Computer";
         }
     }
 }
