@@ -33,6 +33,27 @@ function playerChoice() {
         playerInput.value = "rock";
         computerInput.value = computerSelection;
         console.log(computerSelection);
+
+        if (playerSelection === computerSelection) {
+        
+            battleLog.value = "Crack!";
+            resultInput.value = "Draw!";
+            console.log("Draw!");
+    
+        } else if (computerSelection === "scissors") {
+
+            battleLog.value = "Rock beats scissors!";
+            console.log("Rock beats scissors!");
+            overallPlayerScore.value += 1;
+            resultInput.value = "Player";
+
+        } else if (computerSelection === "paper") {
+
+            battleLog.value = "Paper beats rock!";
+            console.log("Paper beats rock!");
+            overallComputerScore.value += 1;
+            resultInput.value = "Computer";      
+        }
     })
 
     const paperBtn = document.querySelector("#paper");
@@ -41,7 +62,29 @@ function playerChoice() {
         console.log(playerSelection = "paper");
         playerInput.value = "paper";
         computerInput.value = computerSelection;
-        console.log(computerSelection);    
+        console.log(computerSelection);
+
+        if (playerSelection === computerSelection) {
+        
+            battleLog.value = "Whoosh!";
+            resultInput.value = "Draw!";
+            console.log("Draw!");
+    
+        } else if (computerSelection === "rock") {
+
+            battleLog.value = "Paper beats rock!";
+            console.log("Paper beats rock!");
+            overallPlayerScore.value += 1;
+            resultInput.value = "Player";
+        
+        } else if (computerSelection === "scissors") {
+
+            battleLog.value = "Scissors beats paper!";
+            console.log("Scissors beats paper!");
+            overallComputerScore.value += 1;
+            resultInput.value = "Computer";
+    
+        }     
     })
 
     const scissorsBtn = document.querySelector("#scissors");
@@ -50,75 +93,56 @@ function playerChoice() {
         console.log(playerSelection = "scissors");
         playerInput.value = "scissors";
         computerInput.value = computerSelection;
-        console.log(computerSelection);     
-    })
+        console.log(computerSelection);
 
-    return playerSelection;
-
-}
-
-function playRound(playerSelection, computerSelection) {
-
-    if (playerSelection === computerSelection) {
+        if (playerSelection === computerSelection) {
         
-        resultInput.value = "Draw!";
-        console.log("Draw!");
-
-    } else if (playerSelection === "rock") {
-
-        if (computerSelection === "scissors") {
-
-            battleLog.value = "Rock beats scissors!";
-            console.log("Rock beats scissors!");
-            playerScore += 1;
-            resultInput.value = "Player";
-
+            battleLog.value = "Clang!";
+            resultInput.value = "Draw!";
+            console.log("Draw!");
+    
         } else if (computerSelection === "paper") {
 
-            battleLog.value = "Paper beats rock!";
-            console.log("Paper beats rock!");
-            computerScore += 1;
-            resultInput.value = "Computer";      
-        }
-        
-    } else if (playerSelection === "paper") {
-
-        if (computerSelection === "rock") {
-
-            battleLog.value = "Paper beats rock!";
-            console.log("Paper beats rock!");
-            playerScore += 1;
-            resultInput.value = "Player";
-        
-        } else if (computerSelection === "scissors") {
-
             battleLog.value = "Scissors beats paper!";
             console.log("Scissors beats paper!");
-            computerScore += 1;
-            resultInput.value = "Computer";
-    
-        } 
-
-    } else if (playerSelection === "scissors") {
-
-        if (computerSelection === "paper") {
-
-            battleLog.value = "Scissors beats paper!";
-            console.log("Scissors beats paper!");
-            playerScore += 1;
+            overallPlayerScore.value += 1;
             resultInput.value = "Player";
 
         } else if (computerSelection === "rock") {
 
             battleLog.value = "Rock beats scissors!";
             console.log("Rock beats scissors!");
-            computerScore += 1;
+            overallComputerScore.value += 1;
             resultInput.value = "Computer";
-        }
-    }
+        }     
+    })
 }
 
+if (resultInput.value = "Draw!"||"Player"||"Computer") {
 
+    while (playerScore < 5 && computerScore < 5) {
+        let newPlayerChoice = playerChoice();
+        let newComputerPlay = computerPlay();
+        //playRound(newPlayerChoice, newComputerPlay);
+        if (playerScore = 5 && computerScore < playerScore) {
+            prompt("Player victorious! Machine is crushed!");
+            console.log("Player victorious! Machine is crushed!");
+        } else if (computerScore = 5 && playerScore < computerScore) {
+            prompt("Game over! Kneel before me, you filthy human!");
+            console.log("Game over! Kneel before me, you filthy human!");
+        }
+        break
+    } 
+
+
+}
+
+/*
+function playRound(playerSelection, computerSelection) {
+
+}
+
+*/
 
 
 /*
