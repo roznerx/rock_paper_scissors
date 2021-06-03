@@ -1,11 +1,8 @@
-let playerScore = 0;
-let computerScore = 0;
-
 let overallPlayerScore = document.getElementById("overall-player-score");
 let overallComputerScore = document.getElementById("overall-computer-score");
 
-overallPlayerScore.value = playerScore;
-overallComputerScore.value = computerScore;
+overallPlayerScore.value = parseInt(0);
+overallComputerScore.value = parseInt(0);
 
 let playerInput = document.getElementById("player-input");
 let computerInput = document.getElementById("computer-input");
@@ -37,21 +34,21 @@ function playerChoice() {
         if (playerSelection === computerSelection) {
         
             battleLog.value = "Crack!";
-            resultInput.value = "Draw!";
             console.log("Draw!");
+            resultInput.value = "Draw!";
     
         } else if (computerSelection === "scissors") {
 
             battleLog.value = "Rock beats scissors!";
             console.log("Rock beats scissors!");
-            overallPlayerScore.value += 1;
+            overallPlayerScore.value = parseInt(overallPlayerScore.value) + parseInt(1);
             resultInput.value = "Player";
 
         } else if (computerSelection === "paper") {
 
             battleLog.value = "Paper beats rock!";
             console.log("Paper beats rock!");
-            overallComputerScore.value += 1;
+            overallComputerScore.value = parseInt(overallComputerScore.value) + parseInt(1);
             resultInput.value = "Computer";      
         }
     })
@@ -67,21 +64,21 @@ function playerChoice() {
         if (playerSelection === computerSelection) {
         
             battleLog.value = "Whoosh!";
-            resultInput.value = "Draw!";
             console.log("Draw!");
+            resultInput.value = "Draw!";
     
         } else if (computerSelection === "rock") {
 
             battleLog.value = "Paper beats rock!";
             console.log("Paper beats rock!");
-            overallPlayerScore.value += 1;
+            overallPlayerScore.value = parseInt(overallPlayerScore.value) + parseInt(1)
             resultInput.value = "Player";
         
         } else if (computerSelection === "scissors") {
 
             battleLog.value = "Scissors beats paper!";
             console.log("Scissors beats paper!");
-            overallComputerScore.value += 1;
+            overallComputerScore.value = parseInt(overallComputerScore.value) + parseInt(1);
             resultInput.value = "Computer";
     
         }     
@@ -98,44 +95,49 @@ function playerChoice() {
         if (playerSelection === computerSelection) {
         
             battleLog.value = "Clang!";
-            resultInput.value = "Draw!";
             console.log("Draw!");
+            resultInput.value = "Draw!";
     
         } else if (computerSelection === "paper") {
 
             battleLog.value = "Scissors beats paper!";
             console.log("Scissors beats paper!");
-            overallPlayerScore.value += 1;
+            overallPlayerScore.value = parseInt(overallPlayerScore.value) + parseInt(1)
             resultInput.value = "Player";
+            
+
 
         } else if (computerSelection === "rock") {
 
             battleLog.value = "Rock beats scissors!";
             console.log("Rock beats scissors!");
-            overallComputerScore.value += 1;
+            overallComputerScore.value = parseInt(overallComputerScore.value) + parseInt(1);
             resultInput.value = "Computer";
+            
         }     
     })
 }
 
+/*
 if (resultInput.value = "Draw!"||"Player"||"Computer") {
 
-    while (playerScore < 5 && computerScore < 5) {
+    while (overallPlayerScore < 5 && overallComputerScore < 5) {
         let newPlayerChoice = playerChoice();
         let newComputerPlay = computerPlay();
-        //playRound(newPlayerChoice, newComputerPlay);
-        if (playerScore = 5 && computerScore < playerScore) {
+        playRound(newPlayerChoice, newComputerPlay);
+        if (overallPlayerScore = 5 && overallComputerScore < overallPlayerScore) {
             prompt("Player victorious! Machine is crushed!");
             console.log("Player victorious! Machine is crushed!");
-        } else if (computerScore = 5 && playerScore < computerScore) {
+        } else if (overallComputerScore = 5 && overallPlayerScore < overallComputerScore) {
             prompt("Game over! Kneel before me, you filthy human!");
             console.log("Game over! Kneel before me, you filthy human!");
         }
         break
     } 
-
-
 }
+*/
+
+
 
 /*
 function playRound(playerSelection, computerSelection) {
