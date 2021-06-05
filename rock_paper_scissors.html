@@ -9,17 +9,50 @@
 </head>
 <body id="body">
     <div id="gameboard">
-        <h1 id="pick_text"> Pick your weapon!</h1>
+        <h1 id="pick-text"> Pick your weapon!</h1>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <div id="images">
-            <img id="rock" src=".img/noun_rock_88661.png" />
-            <img id="paper" src=".img/noun_Paper_88662.png" />
-            <img id="scissors" src=".img/noun_Scissors_88666.png" />
+        
+        <div id="buttons">
+            <input type="image" id="rock" src=".img/noun_rock_88661.png" />
+            <input type="image" id="paper" src=".img/noun_Paper_88662.png" />
+            <input type="image" id="scissors" src=".img/noun_Scissors_88666.png" />
         </div>
+
+    </div>
+
+    <br>
+    <br>
+    
+    <div id="scores">
+
+        <div id="choices">
+
+            <h2> You choose: </h2>
+            <input type="text" id="player-input" value="" autocomplete="off" readonly/>
+        
+            <h2> Computer chooses: </h2>
+            <input type="text" id="computer-input" value="" autocomplete="off" readonly/>
+
+        </div>
+
+        <div id="round-winner">
+
+            <h2> Result: </h2>
+            <input type="text" id="result-input" value="" autocomplete="off" readonly/>
+            <h2> Battle log: </h2>
+            <input type="text" id="battle-log" value="" autocomplete="off" readonly/>
+
+        </div>
+
+        <div id="overall-score">
+            
+            <h2> Player: </h2>
+            <input type="text" id="overall-player-score" value="" autocomplete="off" readonly/>
+            <h2> Computer: </h2>
+            <input type="text" id="overall-computer-score" value="" autocomplete="off" readonly/>
+        </div>
+
 
     </div>
     

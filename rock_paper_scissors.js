@@ -1,116 +1,187 @@
-//0.Initial scores
+let overallPlayerScore = document.getElementById("overall-player-score");
+let overallComputerScore = document.getElementById("overall-computer-score");
 
-let playerScore = 0;
-let computerScore = 0;
+overallPlayerScore.value = 0;
+overallComputerScore.value = 0;
 
+let playerInput = document.getElementById("player-input");
+let computerInput = document.getElementById("computer-input");
 
-//1.Player and Computer choices
-
-//1.1.Player's choices
-
-function playerChoice() {
-
-    //let playerChoice = prompt("Pick your weapon!");
-
-    if (playerChoice.toLowerCase() === "rock"||"paper"||"scissors") {
-        //return playerChoice.toLowerCase();
-    } else {
-        //return console.log("Invalid input! Please select 'rock', 'paper' or 'scissors'!");
-    }
-};
-
-const playerSelection = playerChoice();
-
-//1.2.Computer's choices
+let resultInput = document.getElementById("result-input");
+let battleLog = document.getElementById("battle-log");
 
 function computerPlay() {
 
+    debugger;
+
     let random = ["rock", "paper", "scissors"];
     return random[Math.floor(Math.random() * 3)];
-};
-
-const computerSelection = computerPlay();
-
-//2.Round boolean
-
-function playRound(playerSelection, computerSelection) {
-
-    console.log(playerSelection);
-    console.log(computerSelection);
-
-    let winMessage = "You win!";
-    let loseMessage = "You lose!";
-    let drawMessage = "Draw!";
-
-    let rockBeats = " Rock beats scissors!";
-    let paperBeats = " Paper beats rock!";
-    let scissorsBeat = " Scissors beats paper!";
-
-    let winner = "";
-
-    if (playerSelection === computerSelection) {
-        console.log(drawMessage);
-    } else if (playerSelection === "rock") {
-        if (computerSelection === "scissors") {
-            console.log(winMessage + rockBeats);
-            playerScore += 1;
-            winner = "Player";
-        } else if (computerSelection === "paper") {
-            console.log(loseMessage + paperBeats);
-            computerScore += 1;
-            winner = "Computer";
-        }
-    } else if (playerSelection === "paper") {
-        if (computerSelection === "rock") {
-            console.log(winMessage + paperBeats);
-            playerScore += 1;
-            winner = "Player";
-        } else if (computerSelection === "scissors") {
-            console.log(loseMessage + scissorsBeat);
-            computerScore += 1;
-            winner = "Computer";
-        }
-    } else if (playerSelection === "scissors") {
-        if (computerSelection === "paper") {
-            console.log(winMessage + scissorsBeat);
-            playerScore += 1;
-            winner = "Player";
-        } else if (computerSelection === "rock") {
-            console.log(loseMessage + rockBeats);
-            computerScore += 1;
-            winner = "Computer";
-        }
-    } 
-
-        if (winner = "Player"||"Computer") {
-            console.log("Player: " + playerScore + " - " + "Computer: " + computerScore);
-            while (playerScore < 5 && computerScore < 5) {
-                let newPlayerChoice = playerChoice();
-                let newComputerPlay = computerPlay();
-                playRound(newPlayerChoice, newComputerPlay);
-                if (playerScore = 5 && computerScore < playerScore) {
-                    console.log("Player victorious! Machine is crushed!");
-                } else if (computerScore = 5 && playerScore < computerScore) {
-                    console.log("Game over! Kneel before me, you filthy human!");
-                }
-                break
-            } 
-        }
 }
 
-console.log(playRound(playerSelection, computerSelection));
-console.log("Player: " + playerScore + " - " + "Computer: " + computerScore);
-console.log("Press F5 to play again!");
+//let computerSelection = computerPlay();
+
+let playerSelection = playerChoice();
+
+function fiveRounds() {
+
+    
+    if (overallPlayerScore.value == 5 && overallComputerScore.value < overallPlayerScore.value) {
+        alert("Player victorious! Machine is crushed!");
+        console.log("Player victorious! Machine is crushed!");
+    } else if (overallComputerScore.value == 5 && overallPlayerScore.value < overallComputerScore.value) {
+        alert("Game over! Kneel before me, you filthy human!");
+        console.log("Game over! Kneel before me, you filthy human!");
+    }
+}
+
+function playerChoice() {
+    const rockBtn = document.querySelector("#rock");
+        rockBtn.addEventListener("click", () => {
+            debugger;
+
+            playerSelection = "rock";
+            console.log("rock");
+            playerInput.value = "rock";
+            let computerSelection = computerPlay();
+            computerInput.value = computerSelection
+            console.log(computerInput.value);
+            
+
+            if (playerSelection === computerSelection) {
+            
+                battleLog.value = "Crack!";
+                console.log("Draw!");
+                resultInput.value = "Draw!";
+
+        
+            } else if (computerSelection === "scissors") {
+
+                battleLog.value = "Rock beats scissors!";
+                console.log("Rock beats scissors!");
+                overallPlayerScore.value = parseInt(overallPlayerScore.value) + parseInt(1);
+                resultInput.value = "Player";
+
+            } else if (computerSelection === "paper") {
+
+                battleLog.value = "Paper beats rock!";
+                console.log("Paper beats rock!");
+                overallComputerScore.value = parseInt(overallComputerScore.value) + parseInt(1);
+                resultInput.value = "Computer";      
+            }
+
+            fiveRounds();
+            
+        })
+
+        const paperBtn = document.querySelector("#paper");
+        paperBtn.addEventListener("click", () => {
+            debugger;
+
+            playerSelection = "paper";
+            console.log(playerSelection = "paper");
+            playerInput.value = "paper";
+            let computerSelection = computerPlay();
+            computerInput.value = computerSelection;
+            console.log(computerSelection);
+
+            if (playerSelection === computerSelection) {
+            
+                battleLog.value = "Whoosh!";
+                console.log("Draw!");
+                resultInput.value = "Draw!";
+        
+            } else if (computerSelection === "rock") {
+
+                battleLog.value = "Paper beats rock!";
+                console.log("Paper beats rock!");
+                overallPlayerScore.value = parseInt(overallPlayerScore.value) + parseInt(1)
+                resultInput.value = "Player";
+            
+            } else if (computerSelection === "scissors") {
+
+                battleLog.value = "Scissors beats paper!";
+                console.log("Scissors beats paper!");
+                overallComputerScore.value = parseInt(overallComputerScore.value) + parseInt(1);
+                resultInput.value = "Computer";
+        
+            }     
+
+            fiveRounds();
+        })
+
+        const scissorsBtn = document.querySelector("#scissors");
+        scissorsBtn.addEventListener("click", () => {
+            debugger;
+
+            playerSelection = "scissors";
+            console.log(playerSelection = "scissors");
+            playerInput.value = "scissors";
+            let computerSelection = computerPlay();
+            computerInput.value = computerSelection;
+            console.log(computerSelection);
+
+            if (playerSelection === computerSelection) {
+            
+                battleLog.value = "Clang!";
+                console.log("Draw!");
+                resultInput.value = "Draw!";
+        
+            } else if (computerSelection === "paper") {
+
+                battleLog.value = "Scissors beats paper!";
+                console.log("Scissors beats paper!");
+                overallPlayerScore.value = parseInt(overallPlayerScore.value) + parseInt(1)
+                resultInput.value = "Player";
+                
+
+
+            } else if (computerSelection === "rock") {
+
+                battleLog.value = "Rock beats scissors!";
+                console.log("Rock beats scissors!");
+                overallComputerScore.value = parseInt(overallComputerScore.value) + parseInt(1);
+                resultInput.value = "Computer";
+                
+            }     
+
+            fiveRounds();
+        })
+
+    
+
+}
+
+
+
+
+/* 
+
+function newRound(newComputerPlay, newPlayerChoice) {
+
+    newComputerPlay = computerSelection;
+    newPlayerChoice = playerSelection;
+
+    return newPlayerChoice;
+} 
+
+*/ 
 
 /*
+if (resultInput.value = "Draw!"||"Player"||"Computer") {
 
-Some notes regarding the current version!!!
-
--Game is up and running!
-
--Couple of things to fix:
-
-1) When the game ends, console displays console.log as "undefined" and "Player: true - Computer: false" strings.
-2) When the prompt happens at the beginning of rounds after the 1st one, no "Invalid input!" message happens.
+    while (overallPlayerScore < parseInt(5) && overallComputerScore < parseInt(5)) {
+        let newPlayerChoice = playerChoice();
+        let newComputerPlay = computerPlay();
+        /playRound(newPlayerChoice, newComputerPlay);
+        if (overallPlayerScore = 5 && overallComputerScore < overallPlayerScore) {
+            prompt("Player victorious! Machine is crushed!");
+            console.log("Player victorious! Machine is crushed!");
+        } else if (overallComputerScore = 5 && overallPlayerScore < overallComputerScore) {
+            prompt("Game over! Kneel before me, you filthy human!");
+            console.log("Game over! Kneel before me, you filthy human!");
+        }
+        break
+    } 
+}
 
 */

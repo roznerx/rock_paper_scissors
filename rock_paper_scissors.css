@@ -2,7 +2,7 @@
     background: black !important;
 }
 
-#pick_text {
+#pick-text {
     margin-left: 530px;
     color: white;
     font-size: 60px;
@@ -11,11 +11,14 @@
 }
 
 #rock {
+    
+    margin-left: 80px;
     max-width: 20%;
     height: auto;
-    margin-left: 100px;
     background-color: white;
+    cursor:pointer;
 }
+
 
 #paper {
     max-width: 20%;
@@ -23,6 +26,7 @@
     margin-left: 200px;
     margin-right: -100px;
     background-color: white;
+    cursor:pointer;
 }
 
 #scissors {
@@ -30,6 +34,31 @@
     height: auto;
     margin-left: 300px;
     background-color: white;
+    cursor:pointer;
 }
 
+#scores {
+    display: flex;
+    
+}
 
+#choices {
+    margin-left: 60px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font: arial;
+}
+
+#round-winner{
+    margin-left: 300px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font: arial;
+}
+
+#overall-score{
+    margin-left: 300px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font: arial;
+}
